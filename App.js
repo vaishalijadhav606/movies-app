@@ -5,7 +5,7 @@ import { Login } from "./components/Login";
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={styles.container}> 
       <Login />
       <StatusBar style="auto" />
     </View>
