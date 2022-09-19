@@ -9,6 +9,9 @@ import {
   View,
 } from "react-native";
 import { getMovie } from "../Services/service";
+import StarRating from "react-native-star-rating";
+import dateFormat from "dateformat";
+import PlayButton from "../component/PlayButton";
 
 const placeholderImage = require("../assets/image/placeholder.png");
 const height = Dimensions.get("screen").height;
@@ -30,6 +33,7 @@ const Detail = ({ route, navigation }) => {
       {loaded && (
         <ScrollView>
           <Image
+            resizeMode="cover"
             style={styles.image}
             source={
               movieDetail.poster_path
@@ -42,17 +46,30 @@ const Detail = ({ route, navigation }) => {
             }
           />
           <View style={styles.container}>
+            <View style={styles.playButton}>
+                <PlayButton />
+            </View>
             <Text style={styles.movieTitle}>{movieDetail.title}</Text>
             {movieDetail.genres && (
-                <View style={styles.genreContainer}>
-                    {movieDetail.genres.map(genre =>{
-                        return (
-                            <Text style={styles.genre} key={genre.id}>{genre.name}</Text>
-                        )
-                    })}
-                </View>
+              <View style={styles.genreContainer}>
+                {movieDetail.genres.map((genre) => {
+                  return (
+                    <Text style={styles.genre} key={genre.id}>
+                      {genre.name}
+                    </Text>
+                  );
+                })}
+              </View>
             )}
-            <Text>{movieDetail.vote_average}</Text>
+            <StarRating
+              maxStars={5}
+              disabled={true}
+              fullStarColor={"gold"}
+              starSize={30}
+              rating={movieDetail.vote_average / 2}
+            />
+            <Text style={styles.overview}>{movieDetail.overview}</Text>
+            <Text style={styles.release}>{'Release date: '+ dateFormat(movieDetail.release_date, 'mmmm dS, yyyy') }</Text>
           </View>
         </ScrollView>
       )}
@@ -77,13 +94,25 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   genreContainer: {
-    flexDirection: 'row',
-    alignContent: 'center',
-    marginTop: 10
+    flexDirection: "row",
+    alignContent: "center",
+    marginTop: 10,
+    marginBottom: 10
   },
   genre: {
     marginRight: 10,
+    fontWeight: "bold",
+  },
+  overview: {
+   padding: 15
+  },
+  release: {
     fontWeight: 'bold'
+  },
+  playButton: {
+    position: 'absolute',
+    top: -25,
+    right: 20
   }
 });
 
