@@ -20,7 +20,6 @@ const defaultProps = {
 class Navbar extends React.PureComponent {
   render() {
     const { navigation, main } = this.props;
-    console.log("main", main);
     return (
       <SafeAreaView>
         {main ? (
@@ -31,7 +30,7 @@ class Navbar extends React.PureComponent {
                 navigation.navigate("Search");
               }}
             >
-              <Icon name={"search-outline"} size={30} color={"#fff"} />
+              <Icon name={"search-outline"} size={30} color={"#000"} />
             </TouchableOpacity>
           </View>
         ) : (
@@ -41,7 +40,7 @@ class Navbar extends React.PureComponent {
                 navigation.goBack();
               }}
             >
-              <Icon name={"chevron-back"} size={40} color={"#fff"} />
+              <Icon name={"chevron-back"} size={40} color={"#000"} />
             </TouchableOpacity>
           </View>
         )}
