@@ -46,9 +46,9 @@ const Detail = ({ route, navigation }) => {
             }
           />
           <View style={styles.container}>
-            <View style={styles.playButton}>
+            {/* <View style={styles.playButton}>
                 <PlayButton />
-            </View>
+            </View> */}
             <Text style={styles.movieTitle}>{movieDetail.title}</Text>
             {movieDetail.genres && (
               <View style={styles.genreContainer}>
