@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import PropTypes from 'prop-types';
+import Colors from "../theme/Colors";
 
 const propTypes = {
   main: PropTypes.bool,
@@ -30,17 +31,17 @@ class Navbar extends React.PureComponent {
                 navigation.navigate("Search");
               }}
             >
-              <Icon name={"search-outline"} size={30} color={"#000"} />
+              <Icon name={"search-outline"} size={30} color={Colors.black} />
             </TouchableOpacity>
           </View>
         ) : (
-          <View>
+          <View style={{paddingTop: 30}}>
             <TouchableOpacity
               onPress={() => {
                 navigation.goBack();
               }}
             >
-              <Icon name={"chevron-back"} size={40} color={"#000"} />
+              <Icon name={"chevron-back"} size={40} color={Colors.lightGray} />
             </TouchableOpacity>
           </View>
         )}
@@ -55,12 +56,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
     padding: 10,
+    paddingTop: 30,
     alignItems: "center",
   },
   logo: {
     fontSize: 40,
     fontWeight: "bold",
-    color: "#4418fc",
+    color: Colors.primary,
   },
 });
 

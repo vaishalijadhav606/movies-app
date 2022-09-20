@@ -12,6 +12,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import Card from "../component/Card";
 import Error from "../component/Error";
 import { searchMovieTv } from "../Services/service";
+import Colors from "../theme/Colors";
 
 const Search = ({ navigation }) => {
   const [text, onChangeText] = useState();
@@ -46,7 +47,7 @@ const Search = ({ navigation }) => {
               onSubmit(text);
             }}
           >
-            <Icon name={"search-outline"} size={30} color={"#000"} />
+            <Icon name={"search-outline"} size={30} color={Colors.black} />
           </TouchableOpacity>
         </View>
         <View style={styles.searchItems}>

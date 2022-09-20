@@ -24,12 +24,13 @@ class List extends React.PureComponent {
 
 const styles = StyleSheet.create({
     list: {
-      marginTop: 30
+      marginTop: 20
     },
     text: {
         fontSize: 20,
         fontWeight: 'bold',
-        paddingBottom: 15
+        padding: 10,
+        paddingBottom: 15,
     }
 })
 
